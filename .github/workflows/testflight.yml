@@ -16,7 +16,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'  # Specify the Ruby version compatible with Fastlane
+          ruby-version: '2.7.2'  # Specify the Ruby version compatible with Fastlane
 
       - name: Install dependencies
         run: |
