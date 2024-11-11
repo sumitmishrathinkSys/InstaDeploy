@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
+      # Step to set up Flutter with the same version you are using locally
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter_version: '3.22.2'  # Set the version of Flutter to match your local version
       # Debugging: List the directory structure
       - name: List current directory structure
         run: pwd  # Print the current working directory
