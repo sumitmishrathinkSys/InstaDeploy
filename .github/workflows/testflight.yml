@@ -38,6 +38,13 @@ jobs:
         run: |
           gem install bundler
           bundle install
+      # Step to sync provisioning profiles using Fastlane Match
+      - name: Set up Fastlane Match
+        working-directory: ./ios
+        run: |
+          gem install fastlane
+          fastlane match development  # Sync development profiles (use 'appstore' for distribution profiles)
+          
        # Step to generate the missing xcconfig file
       - name: Generate Generated.xcconfig file
         working-directory: ./ios  # Adjust this if the file needs to be generated elsewhere
