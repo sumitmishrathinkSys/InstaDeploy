@@ -18,10 +18,8 @@ jobs:
         with:
            ruby-version: '3.0'  # Specify the Ruby version compatible with Fastlane
 
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          bundle install
+      - name: Install Fastlane
+        run: gem install fastlane
 
       - name: Set up fastlane environment
         env:
