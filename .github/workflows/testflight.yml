@@ -19,7 +19,8 @@ jobs:
            ruby-version: '3.0'  # Specify the Ruby version compatible with Fastlane
 
       - name: Install dependencies
-        working-directory: ./ios
+        working-directory: ./ios_deployment_demo/ios
+
         run: |
           gem install bundler
           bundle install
