@@ -43,6 +43,7 @@ jobs:
         working-directory: ./ios
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}  # Pass MATCH_PASSWORD to environment variables
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}  # Pass FASTLANE_PASSWORD to environment variables
         run: |
           gem install fastlane
           fastlane match development  # Sync development profiles
@@ -59,5 +60,6 @@ jobs:
           APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}  
         run: |
           bundle exec fastlane beta  # Run the Fastlane lane to upload to TestFlight
