@@ -12,7 +12,10 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
-
+      # Add this to verify the directory structure during workflow run
+      - name: List directory structure
+        run: ls -R
+        
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
