@@ -33,7 +33,11 @@ jobs:
         run: |
           gem install bundler
           bundle install
-
+       # Step to generate the missing xcconfig file
+      - name: Generate Generated.xcconfig file
+        working-directory: ./ios  # Adjust this if the file needs to be generated elsewhere
+        run: |
+          flutter build ios  # or the command that generates the file
       - name: Set up fastlane environment
         working-directory: ./ios
         env:
