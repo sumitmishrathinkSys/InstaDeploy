@@ -16,11 +16,11 @@ jobs:
       - name: List current directory structure
         run: pwd  # Print the current working directory
 
-      - name: List the contents of the ios_deployment_demo directory
-        run: ls -R ios_deployment_demo  # List the directory structure inside ios_deployment_demo
+      # - name: List the contents of the ios_deployment_demo directory
+      #   run: ls -R ios_deployment_demo  # List the directory structure inside ios_deployment_demo
 
       - name: List the contents of the ios directory
-        run: ls -R ios_deployment_demo/ios  # List the directory structure of the ios folder
+        run: ls -R ./ios  # List the directory structure of the ios folder
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -28,13 +28,14 @@ jobs:
            ruby-version: '3.0'  # Specify the Ruby version compatible with Fastlane
 
       - name: Install dependencies
-        working-directory: ./ios_deployment_demo/ios
+        working-directory: ./ios
 
         run: |
           gem install bundler
           bundle install
 
       - name: Set up fastlane environment
+        working-directory: ./ios
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
