@@ -50,7 +50,7 @@ jobs:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
           gem install fastlane
-          fastlane match development --api_key  # Sync development profiles
+          fastlane match development --api_key_id ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }} --api_key_issuer_id ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }} --api_key ${{ secrets.APP_STORE_CONNECT_API_KEY }}
 
        # Step to generate the missing xcconfig file
       - name: Generate Generated.xcconfig file
