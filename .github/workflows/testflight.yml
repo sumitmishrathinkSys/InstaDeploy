@@ -45,9 +45,12 @@ jobs:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}  # Pass MATCH_PASSWORD to environment variables
           FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}  # Pass FASTLANE_PASSWORD to environment variables
           FASTLANE_APPLE_ID_PASSWORD: ${{ secrets.FASTLANE_APPLE_ID_PASSWORD }}  # Apple ID password
+          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
           gem install fastlane
-          fastlane match development  # Sync development profiles
+          fastlane match development --api_key  # Sync development profiles
 
        # Step to generate the missing xcconfig file
       - name: Generate Generated.xcconfig file
